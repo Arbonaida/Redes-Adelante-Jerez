@@ -667,13 +667,13 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 7: Support / Andrés */}
+        {/* SECTION 7: Support / Andrés y Salva */}
         <section id="support" className="scroll-mt-24 bg-gradient-to-br from-slate-50 to-slate-100/60 border border-[#24C87F]/30 text-slate-800 rounded-3xl p-6 sm:p-8 lg:p-10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#24C87F]/10 rounded-full blur-3xl translate-x-12 -translate-y-12"></div>
           
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-              <div className="w-20 h-20 bg-[#24C87F] text-white rounded-full flex items-center justify-center text-4xl select-none font-bold shadow-lg shadow-[#24C87F]/20">
+              <div className="w-20 h-20 bg-[#24C87F] text-white rounded-full flex items-center justify-center text-4xl select-none font-bold shadow-lg shadow-[#24C87F]/20 shrink-0">
                 👋
               </div>
               
@@ -685,20 +685,31 @@ export default function App() {
                   ¿Tienes dudas con las plantillas o carteles?
                 </h3>
                 <p className="text-slate-600 text-sm max-w-xl leading-relaxed font-medium">
-                  Soy <strong className="text-slate-900 font-bold">Andrés</strong>, encargado de redes de Adelante Andalucía en Jerez. Si encuentras algún enlace roto, o requieres asesoramiento, ¡estoy disponible!
+                  Somos <strong className="text-slate-900 font-bold">Andrés y Salva</strong>, encargados de redes de Adelante Andalucía en Jerez. Si encontráis algún enlace roto, o requerís asesoramiento, ¡estamos disponibles!
                 </p>
               </div>
             </div>
 
-            <a
-              href="https://t.me/verdeblancayverde"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#24A1DE] hover:bg-[#208ebb] text-white font-bold text-xs uppercase tracking-wider py-4 px-8 rounded-xl shadow-lg transition-all hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer"
-            >
-              <Send className="w-4 h-4 fill-white text-transparent rotate-45 -translate-y-0.5" />
-              Contactar con Andrés por Telegram
-            </a>
+            <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full lg:w-auto shrink-0">
+              <a
+                href="https://t.me/verdeblancayverde"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#24A1DE] hover:bg-[#208ebb] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer text-center"
+              >
+                <Send className="w-4 h-4 fill-white text-transparent rotate-45 -translate-y-0.5" />
+                Contactar con Andrés por Telegram
+              </a>
+              <a
+                href="https://t.me/SalvaMF94"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#24A1DE] hover:bg-[#208ebb] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer text-center"
+              >
+                <Send className="w-4 h-4 fill-white text-transparent rotate-45 -translate-y-0.5" />
+                Contactar con Salva por Telegram
+              </a>
+            </div>
           </div>
         </section>
 
