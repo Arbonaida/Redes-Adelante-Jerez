@@ -21,7 +21,9 @@ import {
   RefreshCw,
   Eye,
   EyeOff,
-  GraduationCap
+  GraduationCap,
+  Menu,
+  X
 } from 'lucide-react';
 import {
   CANVA_TEMPLATES,
@@ -33,6 +35,7 @@ export default function App() {
   // Navigation / Tabs or visual state
   const [activeCanvaTab, setActiveCanvaTab] = useState<'all' | 'social' | 'event' | 'comms'>('all');
   const [canvaSearchQuery, setCanvaSearchQuery] = useState('');
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   
   // Interactive color copier states
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
@@ -79,7 +82,7 @@ export default function App() {
           </div>
 
           {/* Navigation Links Menu */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 w-full">
             <div className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-500">
               <a href="#colors" className="hover:text-brand-green transition-colors">Paleta</a>
               <a href="#typography" className="hover:text-brand-green transition-colors">Tipografía</a>
@@ -88,18 +91,44 @@ export default function App() {
               <a href="#video" className="hover:text-brand-green transition-colors">Vídeo</a>
               <a href="#support" className="hover:text-brand-green transition-colors">Contacto</a>
             </div>
-            
-            {/* Horizontal scrolling mini-menu on small/medium screens */}
-            <div className="flex lg:hidden items-center gap-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 overflow-x-auto max-w-[150px] sm:max-w-xs md:max-w-md whitespace-nowrap py-1">
-              <a href="#colors" className="hover:text-brand-green transition-colors">Paleta</a>
-              <a href="#typography" className="hover:text-brand-green transition-colors">Tipo</a>
-              <a href="#templates" className="hover:text-brand-green transition-colors">Canva</a>
-              <a href="#tutorials" className="hover:text-brand-green transition-colors">Tutoriales</a>
-              <a href="#video" className="hover:text-brand-green transition-colors">Vídeo</a>
-            </div>
+            <button
+              type="button"
+              aria-expanded={isMobileNavOpen}
+              onClick={() => setIsMobileNavOpen((open) => !open)}
+              className="ml-auto lg:hidden inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/90 p-2 text-slate-600 shadow-sm hover:bg-slate-100 transition-colors"
+            >
+              <span className="sr-only">Abrir menú</span>
+              {isMobileNavOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
       </nav>
+      {isMobileNavOpen ? (
+        <div className="fixed inset-0 z-40">
+          <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" onClick={() => setIsMobileNavOpen(false)} />
+          <div className="absolute right-0 top-0 flex h-full w-full max-w-xs flex-col bg-white p-6 shadow-2xl">
+            <div className="flex items-center justify-between mb-8">
+              <span className="text-sm font-bold uppercase tracking-wider text-slate-900">Secciones</span>
+              <button
+                type="button"
+                aria-label="Cerrar menú"
+                onClick={() => setIsMobileNavOpen(false)}
+                className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-slate-50 p-2 text-slate-600 hover:bg-slate-100 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <nav className="flex flex-col gap-4 text-sm font-bold uppercase tracking-wider text-slate-700">
+              <a href="#colors" onClick={() => setIsMobileNavOpen(false)} className="block rounded-2xl bg-slate-50 px-4 py-3 hover:bg-slate-100 transition-colors">Paleta</a>
+              <a href="#typography" onClick={() => setIsMobileNavOpen(false)} className="block rounded-2xl bg-slate-50 px-4 py-3 hover:bg-slate-100 transition-colors">Tipografía</a>
+              <a href="#templates" onClick={() => setIsMobileNavOpen(false)} className="block rounded-2xl bg-slate-50 px-4 py-3 hover:bg-slate-100 transition-colors">Plantillas</a>
+              <a href="#tutorials" onClick={() => setIsMobileNavOpen(false)} className="block rounded-2xl bg-slate-50 px-4 py-3 hover:bg-slate-100 transition-colors">Tutoriales</a>
+              <a href="#video" onClick={() => setIsMobileNavOpen(false)} className="block rounded-2xl bg-slate-50 px-4 py-3 hover:bg-slate-100 transition-colors">Vídeo</a>
+              <a href="#support" onClick={() => setIsMobileNavOpen(false)} className="block rounded-2xl bg-slate-50 px-4 py-3 hover:bg-slate-100 transition-colors">Contacto</a>
+            </nav>
+          </div>
+        </div>
+      ) : null}
 
       {/* Hero Header Section */}
       <header className="relative overflow-hidden py-10 sm:py-14 bg-[#24C87F] text-white border-b border-[#1fa568]">
@@ -350,18 +379,18 @@ export default function App() {
                   </span>
 
                   {/* Playground Controls */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 w-full sm:w-auto">
                     <select
                       value={typoWeight}
                       onChange={(e) => setTypoWeight(e.target.value as any)}
-                      className="text-xs bg-white border border-slate-200 rounded-lg px-2 py-1.5 font-semibold text-slate-700 outline-none cursor-pointer focus:border-[#24C87F]"
+                      className="min-w-0 w-full sm:w-auto text-xs bg-white border border-slate-200 rounded-lg px-2 py-1.5 font-semibold text-slate-700 outline-none cursor-pointer focus:border-[#24C87F]"
                     >
                       <option value="font-medium">Peso: Medium (500)</option>
                       <option value="font-semibold">Peso: Semibold (600)</option>
                       <option value="font-bold">Peso: Bold (700)</option>
                     </select>
 
-                    <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1">
+                    <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1 w-full sm:w-auto">
                       <span className="text-[10px] font-bold text-slate-500 uppercase mr-1">Size</span>
                       <input
                         type="range"
@@ -369,9 +398,9 @@ export default function App() {
                         max="64"
                         value={typoSize}
                         onChange={(e) => setTypoSize(Number(e.target.value))}
-                        className="w-20 sm:w-24 accent-[#24C87F] cursor-pointer"
+                        className="w-full sm:w-24 accent-[#24C87F] cursor-pointer"
                       />
-                      <span className="text-[10px] font-mono text-slate-600 w-6 text-right">{typoSize}px</span>
+                      <span className="text-[10px] font-mono text-slate-600 w-10 text-right">{typoSize}px</span>
                     </div>
                   </div>
                 </div>
@@ -392,18 +421,18 @@ export default function App() {
               </div>
 
               {/* Text Input */}
-              <div className="mt-4 flex gap-2">
+              <div className="mt-4 flex flex-col sm:flex-row gap-2">
                 <input
                   type="text"
                   value={typedText}
                   onChange={(e) => setTypedText(e.target.value)}
                   placeholder="Escribe algo para probar..."
                   maxLength={100}
-                  className="flex-grow bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 font-semibold outline-none focus:border-[#24C87F] focus:ring-1 focus:ring-[#24C87F] transition-all"
+                  className="flex-grow min-w-0 bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 font-semibold outline-none focus:border-[#24C87F] focus:ring-1 focus:ring-[#24C87F] transition-all"
                 />
                 <button
                   onClick={() => setTypedText('Soberanía, Dignidad y Autogobierno')}
-                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 rounded-xl transition-colors cursor-pointer text-xs font-bold uppercase"
+                  className="w-full sm:w-auto px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 rounded-xl transition-colors cursor-pointer text-xs font-bold uppercase"
                   title="Restaurar frase predeterminada"
                 >
                   Reset
