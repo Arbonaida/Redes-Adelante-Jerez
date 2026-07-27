@@ -1,0 +1,8 @@
+{
+  "name": "Remix Manual de Marca - Adelante Andalucía",
+  "description": "Manual de Identidad Visual y recursos de marca para Adelante Andalucía.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,19 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@700;600;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --font-clash: "Clash Display", sans-serif;
+  --font-work: "Work Sans", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+
+  /* Brand Colors */
+  --color-brand-green: #24C87F;
+  --color-brand-dark: #0c0c0c;
+  --color-brand-neon: #00ff8d;
+  --color-brand-cream: #FAF3E0;
+}
