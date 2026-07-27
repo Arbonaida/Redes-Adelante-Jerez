@@ -17,3 +17,11 @@ html {
   --color-brand-neon: #00ff8d;
   --color-brand-cream: #FAF3E0;
 }
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

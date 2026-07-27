@@ -79,7 +79,7 @@ export default function App() {
           </div>
 
           {/* Navigation Links Menu */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6 min-w-0">
             <div className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-500">
               <a href="#colors" className="hover:text-brand-green transition-colors">Paleta</a>
               <a href="#typography" className="hover:text-brand-green transition-colors">Tipografía</a>
@@ -90,12 +90,13 @@ export default function App() {
             </div>
             
             {/* Horizontal scrolling mini-menu on small/medium screens */}
-            <div className="flex lg:hidden items-center gap-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 overflow-x-auto max-w-[150px] sm:max-w-xs md:max-w-md whitespace-nowrap py-1">
-              <a href="#colors" className="hover:text-brand-green transition-colors">Paleta</a>
-              <a href="#typography" className="hover:text-brand-green transition-colors">Tipo</a>
-              <a href="#templates" className="hover:text-brand-green transition-colors">Canva</a>
-              <a href="#tutorials" className="hover:text-brand-green transition-colors">Tutoriales</a>
-              <a href="#video" className="hover:text-brand-green transition-colors">Vídeo</a>
+            <div className="flex lg:hidden items-center gap-2.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 overflow-x-auto no-scrollbar py-1 shrink min-w-0">
+              <a href="#colors" className="hover:text-brand-green transition-colors whitespace-nowrap bg-slate-100 px-2.5 py-1 rounded-lg">Paleta</a>
+              <a href="#typography" className="hover:text-brand-green transition-colors whitespace-nowrap bg-slate-100 px-2.5 py-1 rounded-lg">Tipo</a>
+              <a href="#templates" className="hover:text-brand-green transition-colors whitespace-nowrap bg-slate-100 px-2.5 py-1 rounded-lg">Canva</a>
+              <a href="#tutorials" className="hover:text-brand-green transition-colors whitespace-nowrap bg-slate-100 px-2.5 py-1 rounded-lg">Tutoriales</a>
+              <a href="#video" className="hover:text-brand-green transition-colors whitespace-nowrap bg-slate-100 px-2.5 py-1 rounded-lg">Vídeo</a>
+              <a href="#support" className="hover:text-brand-green transition-colors whitespace-nowrap bg-slate-100 px-2.5 py-1 rounded-lg">Contacto</a>
             </div>
           </div>
         </div>
@@ -381,10 +382,10 @@ export default function App() {
                   <div className="absolute top-2 left-2 text-[8px] font-bold uppercase tracking-wider text-slate-400">Vista previa Clash Display</div>
                   
                   <div
-                    className={`text-center font-clash text-slate-900 transition-all duration-150 leading-tight tracking-tight`}
+                    className={`text-center font-clash text-slate-900 transition-all duration-150 leading-tight tracking-tight break-words max-w-full`}
                     style={{ fontSize: `${typoSize}px` }}
                   >
-                    <span className={`${typoWeight}`}>
+                    <span className={`${typoWeight} break-words`}>
                       {typedText || 'Adelante Andalucía'}
                     </span>
                   </div>
@@ -499,7 +500,7 @@ export default function App() {
 
           {/* Template Grid */}
           {filteredTemplates.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {filteredTemplates.map((tpl) => (
                 <div
                   key={tpl.id}
