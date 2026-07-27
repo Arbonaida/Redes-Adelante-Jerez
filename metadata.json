@@ -1,0 +1,8 @@
+{
+  "name": "Manual de Marca - Adelante Andalucía Jerez",
+  "description": "Manual de Identidad Visual y recursos de marca para Adelante Andalucía Jerez.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
