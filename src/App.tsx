@@ -82,7 +82,7 @@ export default function App() {
           </div>
 
           {/* Navigation Links Menu */}
-          <div className="flex items-center gap-4 w-full">
+          <div className="flex items-center gap-4 sm:gap-6 min-w-0">
             <div className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-500">
               <a href="#colors" className="hover:text-brand-green transition-colors">Paleta</a>
               <a href="#typography" className="hover:text-brand-green transition-colors">Tipografía</a>
@@ -410,10 +410,10 @@ export default function App() {
                   <div className="absolute top-2 left-2 text-[8px] font-bold uppercase tracking-wider text-slate-400">Vista previa Clash Display</div>
                   
                   <div
-                    className={`text-center font-clash text-slate-900 transition-all duration-150 leading-tight tracking-tight`}
+                    className={`text-center font-clash text-slate-900 transition-all duration-150 leading-tight tracking-tight break-words max-w-full`}
                     style={{ fontSize: `${typoSize}px` }}
                   >
-                    <span className={`${typoWeight}`}>
+                    <span className={`${typoWeight} break-words`}>
                       {typedText || 'Adelante Andalucía'}
                     </span>
                   </div>
@@ -528,7 +528,7 @@ export default function App() {
 
           {/* Template Grid */}
           {filteredTemplates.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {filteredTemplates.map((tpl) => (
                 <div
                   key={tpl.id}
